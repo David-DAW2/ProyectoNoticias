@@ -4,6 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ubicacionpaises.databinding.ArtistaviewBinding
+import com.example.ubicacionpaises.model.Artista
 
 
 class ArtistaAdapter(val listener: (Artista) -> Unit):

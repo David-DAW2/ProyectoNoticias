@@ -1,4 +1,4 @@
-package com.example.ubicacionpaises
+package com.example.ubicacionpaises.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
