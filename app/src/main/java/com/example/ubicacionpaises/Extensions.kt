@@ -15,7 +15,7 @@ fun Context.toast(mensaje: String){
 fun ViewGroup.inflate(layout: Int, attachToRoot: Boolean = true) =
     LayoutInflater.from(context).inflate(layout, this, attachToRoot)
 
-fun ImageView.loadUrl(url: String){
+fun ImageView.loadUrl(url: String?){
     Glide.with(this)
         .load(url)
         .into(this)

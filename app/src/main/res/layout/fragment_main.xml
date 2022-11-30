@@ -10,16 +10,17 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/artistaview"
-
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"/>
+        app:layout_constraintDimensionRatio="H,1:2"
+        app:spanCount="2"
+        tools:listitem="@layout/artistaview" />
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminate="true"
         android:visibility="gone"
+
         android:layout_gravity="center" />
 
 </FrameLayout>

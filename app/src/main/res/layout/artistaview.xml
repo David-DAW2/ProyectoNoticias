@@ -16,7 +16,11 @@
         android:id="@+id/nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:text="TextView"
+        android:lines="2"
+        android:gravity="center"
+        android:ellipsize="end"
         android:textSize="20dp" />
+
+
 </LinearLayout>

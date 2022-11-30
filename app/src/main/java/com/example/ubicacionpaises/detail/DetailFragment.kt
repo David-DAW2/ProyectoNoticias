@@ -26,7 +26,9 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
         viewModel.artista.observe(viewLifecycleOwner){ artista ->
             (requireActivity() as AppCompatActivity).supportActionBar?.title = artista.nombre
-            binding.imagen.loadUrl(artista.urlImagen)
+            artista.urlImagen?.let { binding.imagen.loadUrl(it)
+                binding.contenido.text=artista.contenido
+            binding.autor.text="Autor: "+artista.autor}
         }
 
 

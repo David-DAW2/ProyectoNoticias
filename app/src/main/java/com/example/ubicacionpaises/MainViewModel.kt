@@ -1,24 +1,30 @@
 package com.example.ubicacionpaises
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.ubicacionpaises.model.Artista
-import com.example.ubicacionpaises.model.ArtistaProvider
+import com.example.ubicacionpaises.model.NewsClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class MainViewModel(): ViewModel() {
+class MainViewModel(apiKey: String) : ViewModel() {
     private val _state = MutableLiveData(UiState())
     val state: LiveData<UiState> get() = _state
-
     init {
         viewModelScope.launch(Dispatchers.Main) {
             _state.value = _state.value?.copy(loading = true)
-            val artistas =  withContext(Dispatchers.IO){ArtistaProvider.getArtistas()}
+            val result =  NewsClient.service.lasNewsList(apiKey)
+            val artistas = result.articles.map {
+                Artista(
+                    it.title,
+                    it.urlToImage,
+                    it.description,
+                    it.author,
+
+
+                )
+            }
             _state.value = _state.value?.copy(loading = false, artistas = artistas)
+
         }
     }
 
@@ -36,4 +42,9 @@ class MainViewModel(): ViewModel() {
         val navigateTo: Artista? = null
     )
 
+}
+class MainViewModelFactory(private val apiKey: String): ViewModelProvider.Factory{
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return MainViewModel(apiKey) as T
+    }
 }

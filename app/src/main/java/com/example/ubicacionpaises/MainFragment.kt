@@ -11,7 +11,8 @@ import com.example.ubicacionpaises.databinding.FragmentMainBinding
 import com.example.ubicacionpaises.detail.DetailFragment
 
 class MainFragment : Fragment(R.layout.fragment_main) {
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels{ MainViewModelFactory(getString(R.string.api_key))}
+
     private lateinit var binding: FragmentMainBinding
 
     private val adapter = ArtistaAdapter(){ artista -> viewModel.navigateTo(artista)}
@@ -21,9 +22,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         binding = FragmentMainBinding.bind(view).apply {
             recycler.adapter = adapter
         }
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.app_name)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Noticias de la semana"
 
-        viewModel.state.observe(viewLifecycleOwner){state ->
+        
+       viewModel.state.observe(viewLifecycleOwner){state ->
             binding.progress.visibility =  if (state.loading) View.VISIBLE else View.GONE
             state.artistas?.let {
                 adapter.artistas = state.artistas
@@ -40,8 +42,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
 
 
-
         }
+
+
     }
 
 
