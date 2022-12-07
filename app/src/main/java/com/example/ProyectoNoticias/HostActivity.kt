@@ -1,7 +1,8 @@
-package com.example.ubicacionpaises
+package com.example.ProyectoNoticias
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.ProyectoNoticias.R
 
 class HostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -13,7 +13,7 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintDimensionRatio="H,1:2"
         app:spanCount="2"
-        tools:listitem="@layout/artistaview" />
+        tools:listitem="@layout/noticiaview" />
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress"
         android:layout_width="wrap_content"

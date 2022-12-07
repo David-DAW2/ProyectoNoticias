@@ -1,4 +1,4 @@
-package com.example.ubicacionpaises.model
+package com.example.ProyectoNoticias.model
 
 data class Source(
     val id: Any,

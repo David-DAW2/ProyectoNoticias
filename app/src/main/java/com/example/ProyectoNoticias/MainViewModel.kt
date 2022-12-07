@@ -1,8 +1,10 @@
-package com.example.ubicacionpaises
+@file:Suppress("UNCHECKED_CAST")
+
+package com.example.ProyectoNoticias
 
 import androidx.lifecycle.*
-import com.example.ubicacionpaises.model.Artista
-import com.example.ubicacionpaises.model.NewsClient
+import com.example.ProyectoNoticias.model.NewsClient
+import com.example.ProyectoNoticias.model.Noticia
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -13,8 +15,8 @@ class MainViewModel(apiKey: String) : ViewModel() {
         viewModelScope.launch(Dispatchers.Main) {
             _state.value = _state.value?.copy(loading = true)
             val result =  NewsClient.service.lasNewsList(apiKey)
-            val artistas = result.articles.map {
-                Artista(
+            val noticias = result.articles.map {
+                Noticia(
                     it.title,
                     it.urlToImage,
                     it.description,
@@ -23,13 +25,13 @@ class MainViewModel(apiKey: String) : ViewModel() {
 
                 )
             }
-            _state.value = _state.value?.copy(loading = false, artistas = artistas)
+            _state.value = _state.value?.copy(loading = false, noticias = noticias)
 
         }
     }
 
-    fun navigateTo(artista: Artista) {
-        _state.value = _state.value?.copy(navigateTo = artista)
+    fun navigateTo(noticia: Noticia) {
+        _state.value = _state.value?.copy(navigateTo = noticia)
     }
 
     fun onNavigateDone(){
@@ -38,8 +40,8 @@ class MainViewModel(apiKey: String) : ViewModel() {
 
     data class UiState(
         val loading: Boolean = false,
-        val artistas: List<Artista>? = null,
-        val navigateTo: Artista? = null
+        val noticias: List<Noticia>? = null,
+        val navigateTo: Noticia? = null
     )
 
 }

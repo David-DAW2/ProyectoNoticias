@@ -1,4 +1,4 @@
-package com.example.ubicacionpaises
+package com.example.ProyectoNoticias
 
 import android.content.Context
 import android.view.LayoutInflater

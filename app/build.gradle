@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.ubicacionpaises'
+    namespace 'com.example.ProyectoNoticias'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.ubicacionpaises"
+        applicationId "com.example.ProyectoNoticias"
         minSdk 21
         targetSdk 32
         versionCode 1

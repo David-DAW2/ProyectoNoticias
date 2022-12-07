@@ -1,4 +1,4 @@
-package com.example.ubicacionpaises.model
+package com.example.ProyectoNoticias.model
 
 import retrofit2.http.GET
 import retrofit2.http.Query
