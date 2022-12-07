@@ -22,7 +22,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         binding = FragmentMainBinding.bind(view).apply {
             recycler.adapter = adapter
         }
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Noticias de la semana"
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Noticias Internacionales"
 
         
        viewModel.state.observe(viewLifecycleOwner){state ->
