@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 
-//requireContext().toast("Hola")
 fun Context.toast(mensaje: String){
     Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
 }
